@@ -30,7 +30,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 # ALLOWED_HOSTS = ['127.0.0.1']
-ALLOWED_HOSTS = ['web-production-fd0cb.up.railway.app', 'localhost']
+ALLOWED_HOSTS = ['web-production-fd0cb.up.railway.app/', '0.0.0.0', 'localhost','127.0.0.1']
 
 
 # Application definition
@@ -78,8 +78,13 @@ WSGI_APPLICATION = 'feedback.wsgi.application'
 
 
 CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
 
 SESSION_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-fd0cb.up.railway.app',
+]
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
